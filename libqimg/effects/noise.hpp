@@ -49,7 +49,6 @@ namespace libqimg::Effects {
         for(int i = 0; i < source.count(); i++)
             noise(source[i], min, max, singleColor ? seed : seed + i, threadCount, taskName);
     }
-
     
 }
 
