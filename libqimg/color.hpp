@@ -29,10 +29,10 @@ namespace libqimg::TileMode {
         inline Color operator*(float x) { return Color(r * x, g * x, b * x, a * x); }
         inline Color operator/(float x) { return Color(r / x, g / x, b / x, a / x); }
         /* Vector-Like self operators */
-        inline Color operator+(const Color& x) { return Color(r + x.r, g + x.g, b + x.b, a + x.a); }
-        inline Color operator-(const Color& x) { return Color(r - x.r, g - x.g, b - x.b, a - x.a); }
-        inline Color operator*(float x) { return Color(r * x, g * x, b * x, a * x); }
-        inline Color operator/(float x) { return Color(r / x, g / x, b / x, a / x); }
+        inline Color operator+=(const Color& x) { return Color(r + x.r, g + x.g, b + x.b, a + x.a); }
+        inline Color operator-=(const Color& x) { return Color(r - x.r, g - x.g, b - x.b, a - x.a); }
+        inline Color operator*=(float x) { return Color(r * x, g * x, b * x, a * x); }
+        inline Color operator/=(float x) { return Color(r / x, g / x, b / x, a / x); }
 
         // Lightness = (max(R, G, B) + min(R, G, B)) / 2
         inline float lightness() { return (math::max(r, math::max(g, b)) + math::min(r, math::min(g, b))) / 2.0f; }
