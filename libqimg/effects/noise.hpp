@@ -17,6 +17,7 @@
 
 namespace libqimg::Effects {
 
+    // FMAT noise
     // Create random noise
     void noise(
         FMAT& source, 
@@ -35,7 +36,7 @@ namespace libqimg::Effects {
             source.parameterizedForeach(function);
 
     }
-    
+    // Generate noise on each channel
     // Create random noise
     void noise(
         FMC& source, 

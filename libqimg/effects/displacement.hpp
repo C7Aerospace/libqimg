@@ -16,6 +16,7 @@
 
 namespace libqimg::Effects {
 
+    // Use FMAT as offset
     // Use offset to resample matrix
     void displace(
         FMAT& source,
@@ -54,7 +55,7 @@ namespace libqimg::Effects {
         displace(cache, offsetX, offsetY, source, scale, edgeMode, sampleMode, threadCount, taskName);
         cache.dispose();
     }
-    
+    // Use FMAT as offset
     // Use offset to resample matrix
     void displace(
         FMC& source,
@@ -85,7 +86,7 @@ namespace libqimg::Effects {
         }
         cache.dispose();
     }
-
+    // Each channel has different offset FMAT
     // Use offset to resample matrix
     void displace(
         FMC& source,

@@ -17,7 +17,7 @@
 namespace libqimg::Effects {
 
     #define VALUEMAP_PARAMS float input
-
+    // ValueMap for FMAT
     // Convert every float into another float value, function parameters: (float input)
     template <class Function>
     void valueMap(
@@ -45,7 +45,7 @@ namespace libqimg::Effects {
     ) {
         valueMap(source, source, converter, threadCount, taskName);
     }
-
+    // ValueMap for FMC
     // Convert every float into another float value, function parameters: (float& input)
     template <class Function>
     void valueMap(

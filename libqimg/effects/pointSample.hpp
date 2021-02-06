@@ -16,6 +16,7 @@
 
 namespace libqimg::Effects::Sample {
 
+    // FMAT Point Resample
     // Interpolated Point Sample. MultiThreading is not recommended for resample effects.
     void pointSample(
         FMAT& source, 
@@ -31,7 +32,7 @@ namespace libqimg::Effects::Sample {
         if(!MultiThread::multiThreadExecute(target, function, taskName, threadCount))
             target.parameterizedForeach(function); 
     }
-    
+    // FMC Point Resample
     // Interpolated Point Sample. MultiThreading is not recommended for resample effects.
     void pointSample(
         FMC& source, 

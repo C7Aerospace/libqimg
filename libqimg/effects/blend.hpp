@@ -18,6 +18,7 @@ namespace libqimg::Effects {
 
     #define BLEND_PARAMS float bottom, float top
 
+    // Blend Effect for FMAT
     // Convert every float into another float value, function parameters: (float& bottop, float& top)
     template <class Function>
     void blend(
@@ -47,7 +48,7 @@ namespace libqimg::Effects {
     ) {
         blend(bottom, top, bottom, converter, threadCount, taskName);
     }
-
+    // Blend Effect for FMC
     // Convert every float into another float value, function parameters: (float& bottop, float& top)
     template <class Function>
     void blend(
@@ -71,6 +72,31 @@ namespace libqimg::Effects {
     ) {
         for(int i = 0; i < bottom.count(); i++)
             blend(bottom[i], top[i], bottom[i], converter, threadCount, taskName);
+    }
+    // Blend Effect for FMC, but use same the FMAT for each channel.
+    // Convert every float into another float value, function parameters: (float& bottop, float& top)
+    template <class Function>
+    void blend(
+        FMC& bottom, 
+        FMAT& top,
+        FMC& target, 
+        const Function& converter,
+        MTEXEC_PARAMS
+    ) {
+        for(int i = 0; i < target.count(); i++)
+            blend(bottom[i], top, target[i], converter, threadCount, taskName);
+    }
+    // Effect self
+    // Convert every float into another float value, function parameters: (float& bottop, float& top)
+    template <class Function>
+    void blend(
+        FMC& bottom, 
+        FMAT& top,
+        const Function& converter,
+        MTEXEC_PARAMS
+    ) {
+        for(int i = 0; i < bottom.count(); i++)
+            blend(bottom[i], top, bottom[i], converter, threadCount, taskName);
     }
     
 }
